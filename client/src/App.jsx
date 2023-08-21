@@ -1,8 +1,10 @@
 import { useState } from "react";
 import Trains from "./components/Trains";
 import AuthForm from "./components/AuthForm";
+import RegisterForm from './components/RegisterForm'
+
 function App() {
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(null);
 
   return (
     <>
@@ -10,8 +12,10 @@ function App() {
       <p>Choo Choo!</p>
 
       {token ? <button onClick={() => setToken(false)}>Sign Out</button> : ""}
-
+    
       {token ? <Trains token={token} /> : <AuthForm setToken={setToken} />}
+      
+      {token ? <Trains token={token} /> : <RegisterForm setToken={setToken} />}
     </>
   );
 }
